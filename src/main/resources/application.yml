@@ -13,7 +13,7 @@ eureka:
     waitTimeInMsWhenSyncEmpty: 0
 
 server:
-  port: ${appPort:8083}
+  port: ${appPort:8761}
   
     
 management:
