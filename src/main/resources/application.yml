@@ -14,7 +14,9 @@ eureka:
 
 server:
   port: ${appPort:8761}
-  
+
+info:
+  component: Netflix OSS Eureca Discovery server  
     
 management:
   health:
