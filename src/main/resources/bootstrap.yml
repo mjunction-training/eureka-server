@@ -6,8 +6,22 @@ spring:
       discovery:
         enabled: true
       enabled: true 
-      uri: ${CONFIG_SERVER_URL:http://localhost:8888}  
-
+      uri: ${CONFIG_SERVER_URL:http://localhost:8888} 
+  security:
+    user:
+      name: "user"
+      password: "password"
+  boot:
+    admin:
+      client:
+        username: "user"       #These two are needed so that the client
+        password: "password"   #can register at the protected server api
+        instance:
+          metadata:
+            user.name: "user"         #These two are needed so that the server
+            user.password: "password" #can access the protected client endpoints 
+        url:
+        - http://localhost:9090/
 eureka:
   client:
     registerWithEureka: false
@@ -20,6 +34,8 @@ server:
 
 info:
   component: Netflix OSS Eureca Discovery server  
+  tags:
+    security: secured 
     
 management:
   health:
